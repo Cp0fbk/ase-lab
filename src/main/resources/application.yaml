@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: student-management
+  # Cau hinh file Database SQLite (tu dong tao file student.db tai thu muc goc project)
+  datasource:
+    url: jdbc:sqlite:student.db
+    driver-class-name: org.sqlite.JDBC
+  # Cau hinh JPA/Hibernate
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
