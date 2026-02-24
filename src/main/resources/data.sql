@@ -1,0 +1,12 @@
+INSERT INTO students (id, name, email, age) VALUES ('1', 'Nguyen Van A', 'vana@example.com', 20);
+INSERT INTO students (id, name, email, age) VALUES ('2', 'Tran Thi B', 'thib@example.com', 21);
+INSERT INTO students (id, name, email, age) VALUES ('3', 'Le Van C', 'levanc@example.com', 19);
+INSERT INTO students (id, name, email, age) VALUES ('4', 'Pham Thi D', 'phamthid@example.com', 22);
+INSERT INTO students (id, name, email, age) VALUES ('5', 'Hoang Van E', 'hoangvane@example.com', 20);
+INSERT INTO students (id, name, email, age) VALUES ('6', 'Ngo Thi F', 'ngothif@example.com', 21);
+INSERT INTO students (id, name, email, age) VALUES ('7', 'Vu Van G', 'vuvang@example.com', 23);
+INSERT INTO students (id, name, email, age) VALUES ('8', 'Do Thi H', 'dothih@example.com', 19);
+INSERT INTO students (id, name, email, age) VALUES ('9', 'Bui Van I', 'buivani@example.com', 20);
+INSERT INTO students (id, name, email, age) VALUES ('10', 'Dang Thi J', 'dangthij@example.com', 21);
+INSERT INTO students (id, name, email, age) VALUES ('11', 'Nguyen Van K', 'vank@example.com', 22);
+INSERT INTO students (id, name, email, age) VALUES ('12', 'Tran Thi L', 'thil@example.com', 20);
