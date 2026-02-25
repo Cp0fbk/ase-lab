@@ -27,6 +27,10 @@
         th {
             background-color: #f2f2f2;
         }
+
+        .text-danger {
+            color: red;
+        }
     </style>
 </head>
 
@@ -48,7 +52,7 @@
         <tbody>
             <!-- Cu phap Thymeleaf: Duyet qua danh sach "dsSinhVien"-->
             <!-- th:each="bien_tam : ${key_trong_model}"-->
-            <tr th:each="student : ${dsSinhVien}">
+            <tr th:each="student : ${dsSinhVien}" th:class="${student.age < 18} ? 'text-danger' : ''">
                 <td th:text="${student.id}">ID Mau</td>
                 <td th:text="${student.name}">Ten Mau</td>
                 <td th:text="${student.email}">Email Mau</td>

@@ -10,3 +10,8 @@ INSERT INTO students (id, name, email, age) VALUES ('9', 'Bui Van I', 'buivani@e
 INSERT INTO students (id, name, email, age) VALUES ('10', 'Dang Thi J', 'dangthij@example.com', 21);
 INSERT INTO students (id, name, email, age) VALUES ('11', 'Nguyen Van K', 'vank@example.com', 22);
 INSERT INTO students (id, name, email, age) VALUES ('12', 'Tran Thi L', 'thil@example.com', 20);
+INSERT INTO students (id, name, email, age) VALUES ('13', 'Nguyen Thi M', 'nguyenthim@example.com', 17);
+INSERT INTO students (id, name, email, age) VALUES ('14', 'Nguyen Van N', 'nguyenvan@example.com', 16);
+INSERT INTO students (id, name, email, age) VALUES ('15', 'Le Van O', 'levano@example.com', 20);
+INSERT INTO students (id, name, email, age) VALUES ('16', 'Le Thi P', 'lethip@example.com', 15);
+INSERT INTO students (id, name, email, age) VALUES ('17', 'Dinh Van Q', 'dinhvanq@example.com', 18);
