@@ -1,15 +1,17 @@
 spring:
   application:
     name: student-management
-  # Cau hinh file Database SQLite (tu dong tao file student.db tai thu muc goc project)
+  # Cau hinh Database PostgreSQL
   datasource:
-    url: jdbc:sqlite:student.db
-    driver-class-name: org.sqlite.JDBC
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
   # Cau hinh JPA/Hibernate
   jpa:
-    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     defer-datasource-initialization: true
   sql:

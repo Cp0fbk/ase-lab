@@ -3,72 +3,235 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Danh Sach Sinh Vien</title>
-    <!-- CSS don gian-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DanhSachSinhVien</title>
+    <!-- Modern CSS for premium aesthetics -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f3f4f6;
+            --surface: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --border: #e5e7eb;
+        }
+
         body {
-            font-family: sans-serif;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--surface);
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 16px;
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+
+        .search-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .search-input {
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            width: 250px;
+            transition: all 0.2s;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .table-container {
+            overflow-x: auto;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
 
         th,
         td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            padding: 16px;
             text-align: left;
+            border-bottom: 1px solid var(--border);
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tbody tr {
+            transition: background-color 0.15s;
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
         }
 
         .text-danger {
-            color: red;
+            color: var(--danger);
+        }
+
+        .action-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.15s;
+        }
+
+        .action-link:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <h1>Danh Sach Sinh Vien (SSR)</h1>
-    
-    <div style="margin-bottom: 20px;">
-        <a href="/students/new" style="background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Thêm Mới</a>
-    </div>
+    <div class="container">
+        <h1>Danh Sách Sinh Viên</h1>
 
-    <form action="/students" method="GET" style="margin-bottom: 20px;">
-        <input type="text" name="keyword" placeholder="Nhap ten..." />
-        <button type="submit">Tim</button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Ho va Ten</th>
-                <th>Email</th>
-                <th>Tuoi</th>
-                <th>Hành động</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Cu phap Thymeleaf: Duyet qua danh sach "dsSinhVien"-->
-            <!-- th:each="bien_tam : ${key_trong_model}"-->
-            <tr th:each="student : ${dsSinhVien}" th:class="${student.age < 18} ? 'text-danger' : ''">
-                <td th:text="${student.id}">ID Mau</td>
-                <td th:text="${student.name}">Ten Mau</td>
-                <td th:text="${student.email}">Email Mau</td>
-                <td th:text="${student.age}">0</td>
-                <td>
-                    <a th:href="@{/students/{id}(id=${student.id})}">Xem Chi Tiết</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="header-actions">
+            <a href="/students/new" class="btn">Thêm Mới</a>
+
+            <form action="/students" method="GET" class="search-form">
+                <input type="text" name="keyword" class="search-input" placeholder="Nhập tên..." />
+                <button type="submit" class="btn btn-outline">Tìm Kiếm</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ và Tên</th>
+                        <th>Email</th>
+                        <th>Tuổi</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cú pháp Thymeleaf: Duyệt qua danh sách "dsSinhVien"-->
+                    <tr th:each="student : ${dsSinhVien}" th:class="${student.age < 18} ? 'text-danger' : ''">
+                        <td th:text="${student.id}">1</td>
+                        <td th:text="${student.name}">Tên Mẫu</td>
+                        <td th:text="${student.email}">Email Mẫu</td>
+                        <td th:text="${student.age}">0</td>
+                        <td>
+                            <a th:href="@{/students/{id}(id=${student.id})}" class="action-link">Xem Chi Tiết</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>

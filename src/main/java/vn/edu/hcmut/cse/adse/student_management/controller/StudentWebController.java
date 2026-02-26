@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import vn.edu.hcmut.cse.adse.student_management.Student;
-import vn.edu.hcmut.cse.adse.student_management.StudentService;
+import vn.edu.hcmut.cse.adse.student_management.entity.Student;
+import vn.edu.hcmut.cse.adse.student_management.service.StudentService;
 
 import java.util.List;
 

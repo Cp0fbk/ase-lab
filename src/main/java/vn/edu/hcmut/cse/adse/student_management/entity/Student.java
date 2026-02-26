@@ -1,4 +1,4 @@
-package vn.edu.hcmut.cse.adse.student_management;
+package vn.edu.hcmut.cse.adse.student_management.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
