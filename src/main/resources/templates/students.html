@@ -36,7 +36,12 @@
 
 <body>
     <h1>Danh Sach Sinh Vien (SSR)</h1>
-    <form action="/students" method="GET">
+    
+    <div style="margin-bottom: 20px;">
+        <a href="/students/new" style="background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Thêm Mới</a>
+    </div>
+
+    <form action="/students" method="GET" style="margin-bottom: 20px;">
         <input type="text" name="keyword" placeholder="Nhap ten..." />
         <button type="submit">Tim</button>
     </form>
@@ -47,6 +52,7 @@
                 <th>Ho va Ten</th>
                 <th>Email</th>
                 <th>Tuoi</th>
+                <th>Hành động</th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +63,9 @@
                 <td th:text="${student.name}">Ten Mau</td>
                 <td th:text="${student.email}">Email Mau</td>
                 <td th:text="${student.age}">0</td>
+                <td>
+                    <a th:href="@{/students/{id}(id=${student.id})}">Xem Chi Tiết</a>
+                </td>
             </tr>
         </tbody>
     </table>
