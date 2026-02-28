@@ -8,45 +8,69 @@
 ---
 
 ## MỤC LỤC
-1. [Hướng dẫn cách chạy dự án](#1-hướng-dẫn-cách-chạy-dự-án)
-2. [Public URL](#2-public-url)
-3. [Trả lời các câu hỏi](#3-trả-lời-các-câu-hỏi)
-   - [Lab 1](#lab-1)
-     - [1.1. Thao tác với dữ liệu lớn](#11-thao-tác-với-dữ-liệu-lớn)
-     - [1.2. Phân tích ràng buộc Khóa chính (Primary Key)](#12-phân-tích-ràng-buộc-khóa-chính-primary-key)
-     - [1.3. Kiểm tra tính toàn vẹn dữ liệu (Constraints)](#13-kiểm-tra-tính-toàn-vẹn-dữ-liệu-constraints)
-     - [1.4. Cơ chế vận hành của Hibernate](#14-cơ-chế-vận-hành-của-hibernate)
-   - [Lab 2](#lab-2)
-   - [Lab 3](#lab-3)
-     - [3.1. Chức năng tìm kiếm](#31-chức-năng-tìm-kiếm)
+1. [Giới thiệu dự án](#1-giới-thiệu-dự-án)
+2. [Lộ trình thực hiện](#2-lộ-trình-thực-hiện)
+3. [Công cụ & Công nghệ](#3-công-cụ--công-nghệ)
+4. [Hướng dẫn chạy dự án](#4-hướng-dẫn-chạy-dự-án)
+5. [Public URL](#5-public-url)
+6. [Trả lời câu hỏi & Kết quả các bài Lab](#6-trả-lời-câu-hỏi--kết-quả-các-bài-lab)
+   - [Lab 1: Khởi tạo & Kiến trúc](#lab-1-khởi-tạo--kiến-trúc)
+   - [Lab 2: Backend REST API](#lab-2-backend-rest-api)
+   - [Lab 3: Frontend (SSR)](#lab-3-frontend-ssr)
+   - [Lab 4: Hoàn thiện sản phẩm (CRUD)](#lab-4-hoàn-thiện-sản-phẩm-crud)
+   - [Lab 5: Docker & Cloud Deployment](#lab-5-docker--cloud-deployment)
 
 ---
 
-## 1. Hướng dẫn cách chạy dự án
-
-### Yêu cầu hệ thống
-- **Java:** JDK 21 hoặc mới hơn.
-- **Maven:** Phiên bản 3.8.x trở lên.
-
-### Các bước thực hiện
-1. **Tải mã nguồn:** Clone dự án từ repository hoặc tải về thư mục máy tính.
-2. **Chạy ứng dụng:** Mở terminal tại thư mục `student-management` và chạy lệnh:
-   ```powershell
-   mvn spring-boot:run
-   ```
-3. **Truy cập giao diện:** Sau khi server khởi động thành công trên cổng 8080, mở trình duyệt và truy cập:
-   `http://localhost:8080/students`
+## 1. Giới thiệu dự án
+Dự án **Student Management** là một hệ thống quản lý hồ sơ sinh viên căn bản, được xây dựng để phục vụ cho buổi thực hành Scrum Agile. 
+- **Bối cảnh:** Đóng vai trò là lõi xử lý dữ liệu (Core Service) cho một ứng dụng quản lý trường học.
+- **Dịch vụ chính:** Quản lý thông tin (Tên, Email, Tuổi), cung cấp API cho các nền tảng khác, và lưu trữ dữ liệu bền vững.
 
 ---
 
-## 2. Public URL
-*(Tạm thời chưa có)*
+## 2. Lộ trình thực hiện
+Hệ thống được phát triển qua 5 giai đoạn:
+1. **Lab 1:** Khởi tạo project Spring Boot và cấu hình database SQLite.
+2. **Lab 2:** Xây dựng lõi Backend (Entity, Repository, Service) và REST API.
+3. **Lab 3:** Xây dựng giao diện Web Server-Side Rendering (SSR) với Thymeleaf.
+4. **Lab 4:** Hoàn thiện đầy đủ tính năng CRUD UI và chuyển đổi sang PostgreSQL.
+5. **Lab 5:** Đóng gói ứng dụng với Docker và triển khai lên Cloud (Render).
 
 ---
 
-## 3. Trả lời các câu hỏi
+## 3. Công cụ & Công nghệ
+- **Ngôn ngữ:** Java 21+
+- **Framework:** Spring Boot 4.0.3 (Spring Data JPA, Spring Web, Thymeleaf).
+- **Quản lý build:** Maven.
+- **Database:** SQLite (Giai đoạn đầu), PostgreSQL @ Render (Giai đoạn cuối).
+- **DevOps:** Docker, Docker Compose, Render.com.
 
-### Lab 1
+---
+
+## 4. Hướng dẫn chạy dự án
+
+### Cách 1: Chạy trực tiếp (Maven)
+```powershell
+mvn spring-boot:run
+```
+Truy cập: `http://localhost:8080/students`
+
+### Cách 2: Chạy với Docker Compose
+```powershell
+docker-compose up --build
+```
+
+---
+
+## 5. Public URL
+- **Link dự án:** [https://ase-lab.onrender.com/students](https://ase-lab.onrender.com/students)
+
+---
+
+## 6. Trả lời câu hỏi & Phân tích các Lab
+
+### Lab 1: Khởi tạo & Kiến trúc
 Dưới đây là kết quả thực hiện các yêu cầu mở rộng và phân tích các tình huống giả định trong bài Lab:
 
 #### 1.1. Thao tác với dữ liệu lớn
@@ -118,13 +142,21 @@ jpa:
 
 ---
 
-### Lab 2
-*(Nội dung đang cập nhật)*
+### Lab 2: Backend REST API
+Xây dựng tập hợp các API theo chuẩn RESTful để quản lý sinh viên.
+
+#### Kết quả thực thi API:
+| Khởi động Server | Kết quả trả về (JSON) |
+|:---:|:---:|
+| <img src="img/lab2/start.png" width="100%" alt="Start API"> | <img src="img/lab2/result-1.png" width="100%" alt="API Result JSON"> |
+
+| Chi tiết sinh viên | Sinh viên không tồn tại |
+|:---:|:---:|
+| <img src="img/lab2/result-2.png" width="100%" alt="Detail API"> | <img src="img/lab2/result-3.png" width="100%" alt="Not Found API"> |
 
 ---
 
-### Lab 3
-
+### Lab 3: Frontend (SSR)
 #### 3.1. Chức năng tìm kiếm
 Triển khai chức năng tìm kiếm sinh viên theo tên thông qua giao diện người dùng.
 
@@ -135,3 +167,48 @@ Triển khai chức năng tìm kiếm sinh viên theo tên thông qua giao diệ
 <p align="center">
   <img src="img/lab3/result.png" width="100%" alt="Search Feature Result">
 </p>
+
+#### 3.2. Hiển thị có điều kiện
+Sử dụng toán tử 3 ngôi trong Thymeleaf để áp dụng class CSS:
+`th:class="${student.age < 18} ? 'text-danger' : ''"`
+
+<p align="center">
+  <img src="img/lab3/result2.png" width="100%" alt="Conditional Display">
+</p>
+
+---
+
+### Lab 4: Hoàn thiện sản phẩm (CRUD)
+Chuyển đổi hoàn toàn sang giao diện quản lý đầy đủ.
+
+#### Hình ảnh các module chức năng:
+| Danh sách & Tìm kiếm | Chi tiết sinh viên |
+|:---:|:---:|
+| <img src="img/lab4/list.png" width="100%"> | <img src="img/lab4/detail.png" width="100%"> |
+
+| Thêm mới | Kết quả Thêm mới |
+|:---:|:---:|
+| <img src="img/lab4/add.png" width="100%"> | <img src="img/lab4/add-result.png" width="100%"> |
+
+| Chỉnh sửa | Kết quả Chỉnh sửa | 
+|:---:|:---:|
+| <img src="img/lab4/edit.png" width="100%"> | <img src="img/lab4/edit-result.png" width="100%"> | 
+
+| Thông báo xác nhận khi xóa | 
+|:---:|
+| <img src="img/lab4/delete.png" width="100%"> | 
+
+---
+
+### Lab 5: Docker & Cloud Deployment
+#### 5.1. Lợi ích của Docker
+Đóng gói mọi thư viện, runtime và cấu hình vào một đơn vị chuẩn hóa, đảm bảo ứng dụng chạy giống hệt nhau trên máy cá nhân và trên Server Render.
+
+#### 5.2. Docker Multi-stage Build
+Sử dụng 2 giai đoạn (Build & Run) trong Dockerfile giúp giảm kích thước Image cuối cùng, chỉ chứa file JAR thực thi mà không chứa toàn bộ mã nguồn hay Maven dependencies dư thừa.
+
+#### 5.3. Một số lưu ý khi triển khai trên Render
+- **Cold Start:** Do sử dụng gói **Free** của Render, ứng dụng sẽ tự động chuyển sang chế độ sleep sau 15 phút nếu không có bất kỳ lượt truy cập nào.
+- **Thời gian chờ:** Lần truy cập đầu tiên sau khi ứng dụng ngủ thường mất từ 30 đến 60 giây hoặc có thể lâu hơn để khởi động lại toàn bộ hệ thống.
+- **Tính ổn định:** Đây là giới hạn của gói miễn phí, giúp tiết kiệm tài nguyên nhưng vẫn đảm bảo trải nghiệm học tập và minh họa tốt.
+
